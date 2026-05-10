@@ -1,191 +1,117 @@
-:root {
-    --bg: #fdf6ec;
-    --text: #3b2f1e;
-    --card-bg: #fff8ed;
-    --link: #b45f2a;
-    --nav-bg: #e7d5b7;
-    --border: #d4b68a;
-}
-
-body.dark {
-    --bg: #2b2418;
-    --text: #e6d7b8;
-    --card-bg: #3e3426;
-    --link: #e09d5b;
-    --nav-bg: #4a3d2c;
-    --border: #5c4b30;
-}
-
-* {
+/* Базовый сброс */
+body, h1, h2, p, ul, li {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
-
 body {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    background: var(--bg);
-    color: var(--text);
-    transition: 0.3s;
-    min-height: 100vh;
+    font-family: Georgia, serif;
+    background: #fdf6ec;
+    color: #3b2f1e;
+    line-height: 1.6;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Навигация */
 nav {
-    background: var(--nav-bg);
-    padding: 1rem 2rem;
+    background: #e7d5b7;
+    padding: 1rem;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center; /* кнопку темы убрали, меню по центру */
     flex-wrap: wrap;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
-
 nav ul {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
+    gap: 1.2rem;
 }
-
 nav a {
     text-decoration: none;
-    color: var(--text);
+    color: #3b2f1e;
     font-weight: bold;
-    padding: 0.3rem 0;
     border-bottom: 2px solid transparent;
-    transition: 0.2s;
 }
-
-nav a.active {
-    border-bottom-color: var(--link);
-}
-
+nav a.active,
 nav a:hover {
-    border-bottom-color: var(--link);
-}
-
-#themeToggle {
-    background: none;
-    border: 1px solid var(--border);
-    color: var(--text);
-    font-size: 1.3rem;
-    padding: 0.3rem 0.7rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-#themeToggle:hover {
-    background: var(--card-bg);
+    border-bottom-color: #b45f2a;
 }
 
 /* Шапка */
 header {
     text-align: center;
-    padding: 3rem 2rem 2rem;
+    padding: 2rem 1rem 1rem;
 }
-
 header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 2rem;
 }
 
-/* Основной контент */
+/* Основная область */
 main {
     flex: 1;
     max-width: 900px;
     margin: 0 auto;
-    padding: 1rem 2rem 3rem;
+    padding: 1rem;
     width: 100%;
 }
 
-section {
-    background: var(--card-bg);
-    border-radius: 12px;
-    padding: 1.8rem;
+/* Блоки-карточки */
+section,
+.card,
+.gallery-item {
+    background: #fff8ed;
+    border: 1px solid #d4b68a;
+    border-radius: 8px;
+    padding: 1.5rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    border: 1px solid var(--border);
 }
-
 h2 {
-    color: var(--link);
-    margin-bottom: 0.8rem;
+    color: #b45f2a;
+    margin-bottom: 0.5rem;
 }
 
+/* Быстрые ссылки (главная) */
 .quick-links {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
 }
-
 .card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2rem;
-    text-align: center;
     text-decoration: none;
-    color: var(--text);
-    font-size: 1.2rem;
-    font-weight: bold;
-    flex: 1 1 180px;
-    transition: 0.2s;
+    color: inherit;
+    text-align: center;
+    flex: 1 1 150px;
+    transition: transform 0.2s;
 }
-
 .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-}
-
-.pattern {
-    font-size: 2rem;
-    margin-top: 0.8rem;
-    color: var(--link);
+    transform: translateY(-3px);
 }
 
 /* Галерея */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
 }
-
 .gallery-item {
-    background: var(--card-bg);
-    border-radius: 12px;
-    padding: 1rem;
     text-align: center;
-    border: 1px solid var(--border);
-    transition: 0.2s;
 }
-
-.gallery-item:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
 .img-placeholder {
-    font-size: 4rem;
-    background: var(--nav-bg);
-    border-radius: 8px;
-    height: 140px;
+    font-size: 3rem;
+    background: #e7d5b7;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0.8rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
 }
 
-/* Футер */
+/* Подвал */
 footer {
     text-align: center;
-    padding: 1.5rem;
+    padding: 1rem;
     font-size: 0.9rem;
-    border-top: 1px solid var(--border);
-    margin-top: 2rem;
-    color: var(--text);
+    opacity: 0.8;
 }
